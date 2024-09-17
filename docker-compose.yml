@@ -1,0 +1,19 @@
+services:
+  anaconda:
+    build:
+      context: .
+      dockerfile : ./Dockerfile  # Dockerfile 所在的文件夹路径
+    container_name: anaconda
+    networks:
+      docker-hadoop-spark_default:  # 使用外部已存在的网络
+        ipv4_address: 172.19.0.14
+    ports:
+      - "8888:8888"
+    volumes:
+      - /mnt/c/root:/mnt/data  # 挂载Windows文件系统到容器中
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+
+networks:
+  docker-hadoop-spark_default:
+    external: true  # 指定使用外部网络
