@@ -27,7 +27,8 @@ ENV PATH=$JAVA_HOME/bin:$PATH
 # 安装 PySpark 和 PyMySQL
 #RUN conda install -y pyspark=3.0.0 pymysql
 RUN conda install -y python=3.9 pyspark=3.0.0 pymysql
-
+# install lsp for jupyter tips
+RUN pip install python-lsp-server
 # 设置环境变量，以便 PySpark 找到 Hadoop 和 Spark
 ENV HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop
 ENV SPARK_HOME=/opt/spark

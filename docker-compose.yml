@@ -10,7 +10,8 @@ services:
     ports:
       - "8888:8888"
     volumes:
-      - /mnt/c/root:/mnt/data  # 挂载Windows文件系统到容器中
+     # - /mnt/c/root:/mnt/data  # 挂载Windows文件系统到容器中
+     - /c/root:/mnt/data
     environment:
       - JUPYTER_ENABLE_LAB=yes
 
